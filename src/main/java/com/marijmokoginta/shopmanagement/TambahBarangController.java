@@ -16,13 +16,13 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.util.Objects;
 
 public class TambahBarangController<FontAwesomeIcon> {
+    @FXML
+    public Button btnBatal;
+
     @FXML
     private AnchorPane rootPane;
 
@@ -56,7 +56,7 @@ public class TambahBarangController<FontAwesomeIcon> {
     @FXML
     private TableView tvDataBarang;
 
-    public void onButtonClicked(ActionEvent event) throws Exception{
+    private void onButtonClicked(ActionEvent event) throws Exception{
         if(event.getTarget().equals(btnSubmit)){
             // menampilkan data ke dalam tabel tvDataBarang saat btnSubmit ditekan
             ObservableList<Barang> data = tvDataBarang.getItems();
@@ -93,12 +93,15 @@ public class TambahBarangController<FontAwesomeIcon> {
                 alert.setContentText("Error IO Exeption: " + ex.getMessage());
                 alert.showAndWait();
             }
-        } else if(event.getTarget().equals(btnClose)){
+        } else if(event.getTarget().equals(btnBatal)){
+            ((Stage)rootPane.getScene().getWindow()).close();
+
+        }else if(event.getTarget().equals(btnClose)){
             ((Stage)rootPane.getScene().getWindow()).close();
         }
     }
 
-    public void handleClose(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+    private void handleClose(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         if(mouseEvent.getSource() == btnClose){
             ((Stage)rootPane.getScene().getWindow()).close();
         }

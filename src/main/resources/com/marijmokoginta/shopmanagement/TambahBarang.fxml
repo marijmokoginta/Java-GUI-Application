@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="852.0" style="-fx-background-color: #2C2145;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marijmokoginta.shopmanagement.TambahBarangController" fx:id="rootPane">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="852.0" style="-fx-background-color: #691A15;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marijmokoginta.shopmanagement.TambahBarangController" fx:id="rootPane">
    <children>
-      <VBox layoutX="19.0" prefHeight="520.0" prefWidth="265.0" style="-fx-background-color: #2C2145;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="19.0" prefHeight="520.0" prefWidth="265.0" style="-fx-background-color: #691A15;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="59.0" prefWidth="298.0" text="TAMBAH BARANG" textFill="WHITE">
                <font>
@@ -105,7 +105,7 @@
             </Pane>
          </children>
       </VBox>
-      <GridPane layoutX="297.0" layoutY="31.0" prefHeight="475.0" prefWidth="536.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <GridPane layoutX="297.0" layoutY="31.0" prefHeight="475.0" prefWidth="536.0" style="-fx-background-color: #CD998E;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
