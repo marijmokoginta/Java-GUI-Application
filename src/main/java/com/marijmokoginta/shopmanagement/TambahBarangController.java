@@ -56,6 +56,7 @@ public class TambahBarangController<FontAwesomeIcon> {
     @FXML
     private TableView tvDataBarang;
 
+    @FXML
     private void onButtonClicked(ActionEvent event) throws Exception{
         if(event.getTarget().equals(btnSubmit)){
             // menampilkan data ke dalam tabel tvDataBarang saat btnSubmit ditekan
@@ -101,6 +102,7 @@ public class TambahBarangController<FontAwesomeIcon> {
         }
     }
 
+    @FXML
     private void handleClose(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         if(mouseEvent.getSource() == btnClose){
             ((Stage)rootPane.getScene().getWindow()).close();
