@@ -17,7 +17,7 @@ public class MShopApplication extends Application {
         Object root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
         stage.setTitle("Mshop");
 
-        File file = new File("@image/pngwing.png");
+        File file = new File("C:\\Users\\marij_mokoginta\\Pictures\\image\\logo.png");
         Image image = new Image(file.toURI().toString());
         stage.getIcons().add(image);
 

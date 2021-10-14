@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marijmokoginta.shopmanagement.KasirController">
+   <children>
+      <FontAwesomeIcon fx:id="btnClose" fill="#4d4b4b" iconName="CLOSE" layoutX="1054.0" layoutY="24.0" onMouseClicked="#handleClose" size="20" />
+   </children>
+</AnchorPane>

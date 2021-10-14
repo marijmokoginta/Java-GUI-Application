@@ -133,8 +133,24 @@ public class MShopController<FontAwesomeIcon> implements Initializable {
             pnlPengaturan.toFront();
         }
     }
+
+    // menu home
     @FXML
-    void handleButtonAction(ActionEvent event) throws Exception{
+    private void homeButtonAction(ActionEvent event) throws Exception{
+        if(event.getTarget().equals(btnKasir)){
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Kasir.fxml")));
+            Stage stage = new Stage();
+            stage.setTitle("Kasir");
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root));
+            stage.show();
+            ((Stage)rootPane.getScene().getWindow()).close();
+        }
+    }
+
+    // menu tambah data
+    @FXML
+    private void handleButtonAction(ActionEvent event) throws Exception{
         if(event.getSource() == btnTambahBarang) {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TambahBarang.fxml")));
             Stage stage = new Stage();
@@ -166,6 +182,7 @@ public class MShopController<FontAwesomeIcon> implements Initializable {
         }
     }
 
+    // tombol close
     @FXML
     private void handleClose(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         if(mouseEvent.getSource() == btnClose) {
@@ -186,6 +203,7 @@ public class MShopController<FontAwesomeIcon> implements Initializable {
         }
     }
 
+    // fungsi cari data di file data-barang.dat
     private void cekDatadiDatabase(String[] keywords) throws IOException {
         FileReader fileReader = new FileReader("data-barang.dat");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -213,7 +231,6 @@ public class MShopController<FontAwesomeIcon> implements Initializable {
             }
             data = bufferedReader.readLine();
         }
-//        dataBarangItems.clear();
         bufferedReader.close();
     }
 }
