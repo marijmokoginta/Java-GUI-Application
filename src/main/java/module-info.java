@@ -10,7 +10,8 @@ module com.marijmokoginta.shopmanagement {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires fontawesomefx;
 
-    exports com.marijmokoginta.shopmanagement;
     opens com.marijmokoginta.shopmanagement to javafx.fxml;
+    exports com.marijmokoginta.shopmanagement;
 }

@@ -1,23 +1,13 @@
 package com.marijmokoginta.shopmanagement;
 
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.stage.Window;
 
 import java.io.*;
-import java.util.Objects;
 
 public class TambahBarangController<FontAwesomeIcon> {
     @FXML
@@ -81,8 +71,8 @@ public class TambahBarangController<FontAwesomeIcon> {
                 ObservableList<Barang> data = tvDataBarang.getItems();
                 FileWriter fileOutput = new FileWriter("data-barang.dat",true);
                 BufferedWriter writer = new BufferedWriter(fileOutput);
-                for(int i = 0; i < data.size(); i++){
-                    writer.write(String.valueOf(data.get(i).getID()) + "," + String.valueOf(data.get(i).getNamaBarang() + "," + String.valueOf(data.get(i).getKategori()) + "," + String.valueOf(data.get(i).getHargaSatuan()) + "," + String.valueOf(data.get(i).getJumlah()) + "," + String.valueOf(data.get(i).getCreatedAt())));
+                for (Barang datum : data) {
+                    writer.write(datum.getID() + "," + datum.getNamaBarang() + "," + datum.getKategori() + "," + datum.getHargaSatuan() + "," + datum.getJumlah() + "," + datum.getCreatedAt());
                     writer.newLine();
                 }
                 writer.close();
@@ -103,7 +93,7 @@ public class TambahBarangController<FontAwesomeIcon> {
     }
 
     @FXML
-    private void handleClose(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+    private void handleClose(javafx.scene.input.MouseEvent mouseEvent) {
         if(mouseEvent.getSource() == btnClose){
             ((Stage)rootPane.getScene().getWindow()).close();
         }

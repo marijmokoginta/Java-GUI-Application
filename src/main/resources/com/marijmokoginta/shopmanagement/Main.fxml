@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.cell.*?>
-<?import java.lang.*?>
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1260.0" style="-fx-background-color: #CD998E;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marijmokoginta.shopmanagement.MShopController">
+<AnchorPane fx:id="rootPane" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1260.0" style="-fx-background-color: #CD998E;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marijmokoginta.shopmanagement.MShopController">
    <children>
        <VBox centerShape="false" maxWidth="582.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="382.0" style="-fx-background-color: #9E2720;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
             <Pane prefHeight="140.0" prefWidth="381.0">
                <children>
-                  <Label graphicTextGap="0.0" layoutX="89.0" layoutY="72.0" text="MShop" textFill="WHITE">
+                  <Label graphicTextGap="10.0" layoutX="89.0" layoutY="72.0" text="MShop" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="18.0" />
                      </font>
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" iconName="SHOPPING_CART" size="30" />
+                     </graphic>
                   </Label>
-                  <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="39.0" layoutY="61.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../../Users/marij_mokoginta/Pictures/image/Logo.png" />
-                     </image>
-                  </ImageView>
                </children>
             </Pane>
               <Button fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="17.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="55.0" prefWidth="380.0" stylesheets="@css/fullpackstyling.css" text="Home" textOverrun="CLIP">
@@ -61,40 +67,26 @@
                       <Insets left="70.0" />
                   </padding>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../../Users/marij_mokoginta/Pictures/image/chart.png" />
-                     </image>
-                  </ImageView>
+                  <FontAwesomeIcon fill="WHITE" iconName="BAR_CHART" />
                </graphic>
               </Button>
               <Button fx:id="btnPengaturan" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="233.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="55.0" prefWidth="380.0" stylesheets="@css/fullpackstyling.css" text="Pengaturan" textOverrun="CLIP">
-                  <graphic>
-                      <FontAwesomeIcon fill="WHITE" iconName="GEAR" />
-                  </graphic>
                   <opaqueInsets>
                       <Insets />
                   </opaqueInsets>
                   <padding>
                       <Insets left="70.0" />
                   </padding>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="GEAR" />
+               </graphic>
               </Button>
             <Pane prefHeight="360.0" prefWidth="382.0">
                <children>
-                  <Button alignment="CENTER" graphicTextGap="0.0" layoutX="113.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="162.0" stylesheets="@css/fullpackstyling.css" text="Log Out" textAlignment="CENTER">
+                  <Button alignment="CENTER" graphicTextGap="10.0" layoutX="113.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="162.0" stylesheets="@css/fullpackstyling.css" text="Log Out" textAlignment="CENTER">
                      <graphic>
-<!--                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">-->
-<!--                           <image>-->
-<!--                              <Image url="@../../../../java/com/marijmokoginta/shopmanagement/image/Log-out.png" />-->
-<!--                           </image>-->
-<!--                        </ImageView>-->
-                     </graphic>
-                  </Button>
-                  <ImageView fitHeight="30.0" fitWidth="44.0" layoutX="128.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../../Users/marij_mokoginta/Pictures/image/Log-out.png" />
-                     </image>
-                  </ImageView>
+                        <FontAwesomeIcon fill="WHITE" iconName="SIGN_OUT" rotate="180.0" size="25" />
+                     </graphic></Button>
                </children>
             </Pane>
           </children>
@@ -108,7 +100,7 @@
             </Label>
          </children>
       </Pane>
-      <FontAwesomeIcon fx:id="btnClose" fill="#5b5757" iconName="CLOSE" layoutX="1240.0" layoutY="21.0" onMouseClicked="#handleClose" size="20" />
+      <FontAwesomeIcon fx:id="btnClose" fill="#5b5757" iconName="CLOSE" layoutX="1240.0" layoutY="21.0" onMouseClicked="#handleIconClick" size="20" />
       <StackPane layoutX="383.0" layoutY="195.0">
          <children>
             <GridPane fx:id="pnlPengaturan" alignment="BASELINE_CENTER" prefHeight="523.0" prefWidth="880.0" style="-fx-background-color: #CD998E;">
@@ -124,65 +116,6 @@
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <GridPane fx:id="pnlDataBarang1" alignment="BASELINE_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="523.0" prefWidth="619.0" style="-fx-background-color: #CD998E;">
-               <children>
-                  <TableView fx:id="tvDataBarang1" prefHeight="478.0" prefWidth="833.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
-                     <columns>
-                        <TableColumn editable="false" prefWidth="75.0" resizable="false" sortable="false" text="ID">
-                           <cellValueFactory>
-                              <PropertyValueFactory property="ID" />
-                           </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn editable="false" prefWidth="286.0" resizable="false" sortable="false" text="NAMA BARANG">
-                           <cellValueFactory>
-                              <PropertyValueFactory property="namaBarang" />
-                           </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn editable="false" prefWidth="133.0" resizable="false" text="KATEGORI">
-                           <cellValueFactory>
-                              <PropertyValueFactory property="kategori" />
-                           </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn editable="false" prefWidth="124.0" resizable="false" sortable="false" text="HARGA SATUAN">
-                           <cellValueFactory>
-                              <PropertyValueFactory property="hargaSatuan" />
-                           </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn editable="false" prefWidth="91.0" resizable="false" sortable="false" text="STOK BARANG">
-                           <cellValueFactory>
-                              <PropertyValueFactory property="jumlah" />
-                           </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn editable="false" prefWidth="170.0" resizable="false" sortable="false" text="CREATED AT">
-                           <cellValueFactory>
-                              <PropertyValueFactory property="createdAt" />
-                           </cellValueFactory>
-                        </TableColumn>
-                     </columns>
-                  </TableView>
-                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <children>
-                        <Button graphicTextGap="10.0" layoutX="390.0" layoutY="4.0" mnemonicParsing="false" stylesheets="@css/fullpackstyling.css" text="Hapus">
-                           <graphic>
-                              <FontAwesomeIcon fill="WHITE" iconName="TRASH" />
-                           </graphic>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="200.0" prefWidth="200.0" />
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </padding>
-               <rowConstraints>
-                  <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="487.0" minHeight="10.0" prefHeight="438.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="487.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
             <GridPane fx:id="pnlEvaluasiToko" alignment="BASELINE_CENTER" prefHeight="523.0" prefWidth="880.0" style="-fx-background-color: #CD998E;">
@@ -246,13 +179,14 @@
                   </TableView>
                   <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="880.0" spacing="10.0">
                      <children>
-                        <FontAwesomeIcon fx:id="btnSearch" fill="#9e2720" iconName="SEARCH" onMouseClicked="#handleClose" size="20">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
+                        <FontAwesomeIcon fx:id="btnSearch" fill="#9e2720" iconName="SEARCH" onMouseClicked="#handleIconClick" size="20">
                         </FontAwesomeIcon>
                         <TextField fx:id="tfSearch" prefHeight="31.0" prefWidth="448.0" style="-fx-border-color: #9E2720; -fx-border-radius: 5px;" />
-                        <ComboBox prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: #9E2720; -fx-border-radius: 5px;" />
+                        <Button fx:id="btnLoad" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="29.0" prefWidth="154.0" stylesheets="@css/fullpackstyling.css" text="Load Data">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" iconName="REFRESH" />
+                           </graphic>
+                        </Button>
                         <Button fx:id="btnTambahBarang" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="217.0" stylesheets="@css/fullpackstyling.css" text="Tambah Barang">
                            <graphic>
                               <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
@@ -262,19 +196,74 @@
                   </HBox>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="btnLoad" graphicTextGap="10.0" layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleButtonAction" stylesheets="@css/fullpackstyling.css" text="Load Data Barang">
+                        <Button fx:id="btnEdit" graphicTextGap="10.0" layoutX="781.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleButtonAction" stylesheets="@css/fullpackstyling.css" text="Edit">
                            <graphic>
-                              <FontAwesomeIcon fill="WHITE" iconName="REFRESH" />
+                              <FontAwesomeIcon fill="WHITE" iconName="EDIT" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnUbahData" graphicTextGap="10.0" layoutX="487.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleButtonAction" stylesheets="@css/fullpackstyling.css" text="Ubah Data Barang">
+                     </children>
+                  </Pane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </GridPane>
+            <GridPane fx:id="pnlEdit" alignment="BASELINE_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="523.0" prefWidth="619.0" style="-fx-background-color: #CD998E;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="487.0" minHeight="10.0" prefHeight="438.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="487.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TableView fx:id="tvEditDataBarang" prefHeight="478.0" prefWidth="833.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
+                     <columns>
+                        <TableColumn fx:id="colID" editable="false" prefWidth="58.0" resizable="false" sortable="false" text="ID">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="ID" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colNamaBarang" editable="false" prefWidth="229.0" resizable="false" sortable="false" text="NAMA BARANG">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="namaBarang" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colKategori" editable="false" prefWidth="111.0" resizable="false" text="KATEGORI">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="kategori" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colHargaSatuan" editable="false" prefWidth="139.0" resizable="false" sortable="false" text="HARGA SATUAN">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="hargaSatuan" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colStokBarang" editable="false" prefWidth="127.0" resizable="false" sortable="false" text="STOK BARANG">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="jumlah" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colCreatedAt" editable="false" prefWidth="140.0" resizable="false" sortable="false" text="CREATED AT">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="createdAt" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colEdit" editable="false" prefWidth="65.0" resizable="false" sortable="false" text="EDIT" />
+                     </columns>
+                  </TableView>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="880.0" spacing="10.0">
+                     <children>
+                        <FontAwesomeIcon fx:id="btnSearch1" fill="#9e2720" iconName="SEARCH" onMouseClicked="#handleIconClick" size="20" />
+                        <TextField fx:id="tfSearch1" prefHeight="31.0" prefWidth="448.0" style="-fx-border-color: #9E2720; -fx-border-radius: 5px;" />
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="btnSelesai" graphicTextGap="5.0" layoutX="768.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleButtonAction" stylesheets="@css/fullpackstyling.css" text="Selesai">
                            <graphic>
-                              <FontAwesomeIcon fill="WHITE" iconName="PENCIL" />
-                           </graphic>
-                        </Button>
-                        <Button fx:id="btnHapusData" graphicTextGap="10.0" layoutX="674.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleButtonAction" stylesheets="@css/fullpackstyling.css" text="Hapus Data Barang">
-                           <graphic>
-                              <FontAwesomeIcon fill="WHITE" iconName="TRASH" />
+                              <FontAwesomeIcon fill="WHITE" iconName="CHECK_CIRCLE" />
                            </graphic>
                         </Button>
                      </children>
@@ -333,5 +322,6 @@
             </GridPane>
          </children>
       </StackPane>
+      <FontAwesomeIcon fx:id="btnMin" fill="#5b5757" iconName="MINUS" layoutX="1209.0" layoutY="22.0" onMouseClicked="#handleIconClick" size="20" />
    </children>
 </AnchorPane>
