@@ -1,6 +1,7 @@
 package com.marijmokoginta.shopmanagement;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconName;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,6 +62,9 @@ public class  MShopController implements Initializable {
     private Button btnStokBarang;
 
     @FXML
+    private FontAwesomeIcon btnBack;
+
+    @FXML
     private Button btnRiwayat;
 
     @FXML
@@ -103,6 +107,12 @@ public class  MShopController implements Initializable {
     private GridPane pnlHome;
 
     @FXML
+    private GridPane pnlKasir;
+
+    @FXML
+    private GridPane pnlStokBarang;
+
+    @FXML
     private GridPane pnlDataBarang;
 
     @FXML
@@ -113,6 +123,9 @@ public class  MShopController implements Initializable {
 
     @FXML
     private TableView tvEditDataBarang;
+
+    @FXML
+    private TableView tvStokBarang;
 
     @FXML
     private TextField tfSearch;
@@ -184,13 +197,26 @@ public class  MShopController implements Initializable {
     @FXML
     private void homeButtonAction(ActionEvent event) throws Exception{
         if(event.getTarget().equals(btnKasir)){
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Kasir.fxml")));
-            Stage stage = new Stage();
-            stage.setTitle("Kasir");
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(new Scene(root));
-            stage.show();
-            ((Stage)rootPane.getScene().getWindow()).close();
+            pnlKasir.toFront();
+        } else if(event.getTarget().equals(btnStokBarang)){
+            pnlStokBarang.toFront();
+
+            // membaca data yang ada di file data-barang.dat ke tableview
+            try{
+                ObservableList<Barang> data = tvStokBarang.getItems();
+                data.clear();
+                BufferedReader reader = new BufferedReader(new FileReader("data-barang.dat"));
+
+                String line;
+                while ((line = reader.readLine()) != null){
+                    String[] temp = line.split(",");
+                    Barang barang = new Barang(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5]);
+                    data.add(barang);
+                }
+                reader.close();
+            } catch (IOException ex){
+
+            }
         }
     }
 
@@ -305,15 +331,15 @@ public class  MShopController implements Initializable {
         }
     }
 
-    // tombol close
+    // fungsi untuk button icon (fontawesomeicon)
     @FXML
     private void handleIconClick(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
-        if(mouseEvent.getSource() == btnClose) {
+        if(mouseEvent.getSource() == btnClose) { // button close
             ((Stage)rootPane.getScene().getWindow()).toBack();
             System.exit(0);
-        } else if(mouseEvent.getSource() == btnMin) {
+        } else if(mouseEvent.getSource() == btnMin) { // button minimize
             ((Stage) rootPane.getScene().getWindow()).toBack();
-        } else if(mouseEvent.getTarget().equals(btnSearch)){
+        } else if(mouseEvent.getTarget().equals(btnSearch)){  // button search
            // mengambil input dari tfSearch
             String cari = tfSearch.getText();
 
@@ -323,7 +349,7 @@ public class  MShopController implements Initializable {
                 // cari data
                 cekDatadiDatabase(keywords,tvDataBarang);
             }
-        } else if(mouseEvent.getTarget().equals(btnSearch1)){
+        } else if(mouseEvent.getTarget().equals(btnSearch1)){ // button search pada menu edit
             // mengambil input dari tfSearch
             String cari = tfSearch1.getText();
 
@@ -333,6 +359,8 @@ public class  MShopController implements Initializable {
                 // cari data
                 cekDatadiDatabase(keywords,tvEditDataBarang);
             }
+        } else if(mouseEvent.getTarget().equals(btnBack)){
+            pnlHome.toFront();
         }
     }
 
