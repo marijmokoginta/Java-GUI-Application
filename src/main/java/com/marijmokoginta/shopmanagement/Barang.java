@@ -21,6 +21,10 @@ public class Barang {
         return ID;
     }
 
+    public void setID(String ID){
+        this.ID = "B" + ID;
+    }
+
     public String getNamaBarang() {
         return namaBarang;
     }

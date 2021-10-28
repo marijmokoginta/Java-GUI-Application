@@ -2,7 +2,9 @@ package com.marijmokoginta.shopmanagement;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconName;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -157,6 +159,7 @@ public class  MShopController implements Initializable {
     }
 
     Barang barang = null;
+    private final ObservableList<Barang> dataList = FXCollections.observableArrayList();
 
 
     // fungsi untuk memilih menu utama
@@ -330,6 +333,11 @@ public class  MShopController implements Initializable {
             pnlDataBarang.toFront();
         }
     }
+
+    // fungsi untuk autocomplete search pada tfSearch
+//    FilteredList<Barang> filteredData = new FilteredList<>(dataList, B -> true){
+
+//    }
 
     // fungsi untuk button icon (fontawesomeicon)
     @FXML

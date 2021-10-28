@@ -49,6 +49,8 @@ public class TambahBarangController<FontAwesomeIcon> {
     @FXML
     private void onButtonClicked(ActionEvent event) throws Exception{
         if(event.getTarget().equals(btnSubmit)){
+            String ID = "B" + ID();
+            tfID.setText(ID);
             // menampilkan data ke dalam tabel tvDataBarang saat btnSubmit ditekan
             ObservableList<Barang> data = tvDataBarang.getItems();
             data.add(new Barang(
@@ -59,12 +61,20 @@ public class TambahBarangController<FontAwesomeIcon> {
                     tfJumlah.getText(),
                     tfTanggal.getText()
             ));
-            tfID.setText("");
             tfTanggal.setText("");
             tfJumlah.setText("");
             tfHargaSatuan.setText("");
             tfKategori.setText("");
             tfNamaBarang.setText("");
+
+            FileWriter fileWriter = new FileWriter("data-tabel.dat");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            for(Barang dataTabel : data){
+                bufferedWriter.write(dataTabel.getID()  + "," + dataTabel.getNamaBarang() + "," + dataTabel.getKategori() + "," + dataTabel.getHargaSatuan() + "," + dataTabel.getJumlah() + "," + dataTabel.getCreatedAt());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.close();
         } else if(event.getTarget().equals(btnSimpan)){
             // menulis data yang ada di tabelview ke file bernama data-barang.dat
             try{
@@ -84,10 +94,13 @@ public class TambahBarangController<FontAwesomeIcon> {
                 alert.setContentText("Error IO Exeption: " + ex.getMessage());
                 alert.showAndWait();
             }
-        } else if(event.getTarget().equals(btnBatal)){
-            ((Stage)rootPane.getScene().getWindow()).close();
 
-        }else if(event.getTarget().equals(btnClose)){
+            // hapus file data-tabel
+            File dataTabel = new File("data-tabel.dat");
+            dataTabel.delete();
+        } else if(event.getTarget().equals(btnBatal)){
+            File dataTabel = new File("data-tabel.dat");
+            dataTabel.delete();
             ((Stage)rootPane.getScene().getWindow()).close();
         }
     }
@@ -95,7 +108,64 @@ public class TambahBarangController<FontAwesomeIcon> {
     @FXML
     private void handleClose(javafx.scene.input.MouseEvent mouseEvent) {
         if(mouseEvent.getSource() == btnClose){
+            File dataTabel = new File("data-tabel.dat");
+            dataTabel.delete();
             ((Stage)rootPane.getScene().getWindow()).close();
         }
+    }
+
+    private String ID(){
+        int number = 1;
+        int jumlahData = 0;
+        String autoNum = Integer.toString(number);
+        boolean isExist;
+        String[] keywords = autoNum.split("\\s");
+
+        try{
+            FileReader fileReader = new FileReader("data-barang.dat");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String data = bufferedReader.readLine();
+            while(data != null){
+                number++;
+
+//                isExist = true;
+//                for(String keyword : keywords){
+//                    isExist = isExist && data.toLowerCase().contains(keyword.toLowerCase());
+//                }
+//
+//                // jika keyword cocok maka tampilkan
+//                if(isExist){
+//                    number++;
+//                }
+
+                data = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+
+        } catch (IOException ignored){
+
+        }
+
+        // membaca file data-tabel.dat
+        try{
+            FileReader readDataTabel = new FileReader("data-tabel.dat");
+            BufferedReader reader = new BufferedReader(readDataTabel);
+
+            String cekData = reader.readLine();
+            while (cekData != null){
+                jumlahData++;
+                cekData = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException ignored){
+
+        }
+
+        number += jumlahData;
+
+        autoNum = Integer.toString(number);
+
+        return autoNum;
     }
 }
